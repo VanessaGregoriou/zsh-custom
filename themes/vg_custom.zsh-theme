@@ -12,7 +12,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=" %{$fg[cyan]%}]%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔%{$reset_color%}"
 ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX="%{$fg[magenta]%}↑"
-ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX=" %{$reset_color%}"
 
 # Outputs current branch info in prompt format
 function git_prompt_info() {
@@ -20,14 +20,16 @@ function git_prompt_info() {
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(git_commits_ahead) ${ref#refs/heads/} $(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(git_commits_ahead)${ref#refs/heads/} $(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
 }
 
 # Gets the number of commits ahead from remote
 function git_commits_ahead() {
   if command git rev-parse --git-dir &>/dev/null; then
-    local commits="$(git rev-list --count @{upstream}..HEAD)"
-    echo "$ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX$commits$ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX"
+    if [[ -n "$(command git show-ref origin/$(git_current_branch) 2> /dev/null)" ]]; then
+      local commits="$(git rev-list --count @{upstream}..HEAD)"
+      echo "$ZSH_THEME_GIT_COMMITS_AHEAD_PREFIX$commits$ZSH_THEME_GIT_COMMITS_AHEAD_SUFFIX"
+    fi
   fi
 }
