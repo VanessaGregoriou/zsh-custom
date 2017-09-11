@@ -1,13 +1,15 @@
 # Custom aliases
 
 alias rst="source ~/.zshrc"
+alias zalias="vim ~/.oh-my-zsh/custom/aliases.zsh"
 
 alias gd="git diff"
 alias gs="git status"
 alias gb="git branch"
 alias gbd="git branch -d"
+alias gbdd="git branch -D"
 alias gco="git checkout"
-alias gcom="git checkout master"
+alias gm="git checkout master"
 alias gbn="git checkout -b"
 alias ga="git add"
 alias gaa="git add -A"
@@ -31,3 +33,13 @@ alias nsd="npm start dev"
 alias ni="npm install"
 alias nr="npm run"
 alias nd="npm run dropdb dev"
+
+alias pinit="pod init"
+alias pi="pod install"
+alias pu="pod update"
+alias po="pod outdated"
+alias pd="pod deintegrate"
+alias pe="pod env"
+alias ps="pod search"
+alias pl="pod list"
+
