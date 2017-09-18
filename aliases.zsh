@@ -33,6 +33,7 @@ alias nsd="npm start dev"
 alias ni="npm install"
 alias nr="npm run"
 alias nd="npm run dropdb dev"
+alias nu="npm i -g npm"
 
 alias pinit="pod init"
 alias pi="pod install"
