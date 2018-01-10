@@ -1,7 +1,10 @@
 # Custom aliases
 
-alias rst="source ~/.zshrc"
-alias zalias="vim ~/.oh-my-zsh/custom/aliases.zsh"
+alias rst="source ~/.zshrc; clear"
+alias zc="vim ~/.zshrc"
+alias zt="vim ~/.oh-my-zsh/custom/themes/vg_custom.zsh-theme"
+alias zf="vim ~/.oh-my-zsh/custom/func.zsh"
+alias za="vim ~/.oh-my-zsh/custom/aliases.zsh"
 
 alias gd="git diff"
 alias gs="git status"
