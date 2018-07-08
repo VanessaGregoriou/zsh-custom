@@ -1,6 +1,6 @@
 # Custom aliases
 
-alias rst="source ~/.zshrc; clear"
+alias re="source ~/.zshrc; clear"
 alias zc="vim ~/.zshrc"
 alias zt="vim ~/.oh-my-zsh/custom/themes/vg_custom.zsh-theme"
 alias zf="vim ~/.oh-my-zsh/custom/func.zsh"
@@ -21,6 +21,7 @@ alias gca="git commit -a"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
 alias gcma="git commit -am"
+alias gcl="git clone"
 alias gp="git push"
 alias gpu="git push -u"
 alias gpl="git pull"
